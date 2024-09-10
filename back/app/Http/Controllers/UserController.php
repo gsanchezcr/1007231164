@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller{
 
     public function index(){
-        $users =  User::all();
+        $users =  User::all(['id', 'email', 'created_at']);
 
         if ($users->isEmpty()) {
             return response()->json(['message' => 'No hay usuarios registrados.'], 404);
